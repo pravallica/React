@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "/Applications/Pravallika/webDevelopment/React"
+		},
+		{
+			"path": "/Users/Priyankaushik/Documents/Trainings/UI_Mythri/Mythri_projects"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Mythri_projects",
+		"git.ignoreLimitWarning": true
+	}
+}
