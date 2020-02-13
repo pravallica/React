@@ -1,7 +1,19 @@
 import React, { Component } from "react";
+import styled from 'styled-components'
 import Grocery from "./Grocery/Grocery";
 import "./App.css";
 
+const StyleButton = styled.button`
+background-color: ${props => props.alt ? 'red' : 'green'};
+color: white;
+padding: 10px;
+font-size: 15px;
+cursor: pointer;
+&:hover{
+  background-color: ${props => props.alt ? 'yellow' : 'pink'};
+  color: black;
+  }
+  `;
 class App extends Component {
   state = {
     Grocery: [
@@ -32,14 +44,6 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "red",
-      color: "white",
-      
-      padding: "10px",
-      fontSize: "15px",
-      cursor: "pointer"
-    };
     let NewGroceries = null;
     
     if (this.state.showItem) {
@@ -53,7 +57,7 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = "green";
+      
     }
 
     let classes = [];
@@ -69,12 +73,13 @@ class App extends Component {
       <div className="App">
         <p className = {classes.join(' ')}> I am the Groceries Component</p>
         <button onClick={this.itemChangeHandler.bind(this, 4)}> Change</button>
-        <button onClick={this.toggleContentHandler} style={style}>
+        <StyleButton alt = {this.state.showItem} onClick={this.toggleContentHandler}>
         
           Toggle
-        </button>
+        </StyleButton>
         {NewGroceries}
       </div>
+      
     );
   }
 }

@@ -37,7 +37,7 @@ class App extends Component {
           onChange={this.lengthCalcHandler}
           value={this.state.text}
         />
-        <p>The input is {this.state.text} </p>
+        <p>Input: {this.state.text} </p>
         <Validation textLen = {this.state.text.length}/>
         {letters}
 
