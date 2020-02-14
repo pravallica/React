@@ -1,0 +1,11 @@
+.Grocery{
+    color:purple;
+    width:100%;
+    text-align:center;
+}
+
+@media (min-width: 500px){
+    .Grocery{
+        width: 450px;
+    }
+}

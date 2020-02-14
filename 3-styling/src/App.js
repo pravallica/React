@@ -1,19 +1,9 @@
 import React, { Component } from "react";
-import styled from 'styled-components'
-import Grocery from "./Grocery/Grocery";
-import "./App.css";
+import GroceryCss from "./GroceryCss/GroceryCss";
+import classes from './App.module.css';
 
-const StyleButton = styled.button`
-background-color: ${props => props.alt ? 'red' : 'green'};
-color: white;
-padding: 10px;
-font-size: 15px;
-cursor: pointer;
-&:hover{
-  background-color: ${props => props.alt ? 'yellow' : 'pink'};
-  color: black;
-  }
-  `;
+
+
 class App extends Component {
   state = {
     Grocery: [
@@ -45,38 +35,40 @@ class App extends Component {
 
   render() {
     let NewGroceries = null;
-    
+    let btnClasses = '';
+
     if (this.state.showItem) {
       NewGroceries = (
         <div>
           {this.state.Grocery.map(grocery => {
-            return <Grocery 
+            return <GroceryCss 
             items={grocery.items} 
             price={grocery.price} 
             key = {grocery.id} />;
           })}
         </div>
       );
-      
+      btnClasses = classes.Red;
     }
 
-    let classes = [];
+    let classesList = [];
     if(this.state.Grocery[1].price < 5 ){
-      classes.push('red');
+      classesList.push(classes.red);
     }
     if(this.state.Grocery[1].price <= 2){
-      classes.push('bold');
-      console.log(classes);
+      classesList.push(classes.bold);
+      console.log(classesList);
     }
 
     return (
-      <div className="App">
-        <p className = {classes.join(' ')}> I am the Groceries Component</p>
+      <div className= {classes.App}>
+        <p className = {classesList.join(' ')}> I am the Groceries Css Component</p>
         <button onClick={this.itemChangeHandler.bind(this, 4)}> Change</button>
-        <StyleButton alt = {this.state.showItem} onClick={this.toggleContentHandler}>
-        
-          Toggle
-        </StyleButton>
+        <button 
+        className= {btnClasses} 
+        onClick={this.toggleContentHandler}>
+        Toggle
+        </button>
         {NewGroceries}
       </div>
       
