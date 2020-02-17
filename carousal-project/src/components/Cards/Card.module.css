@@ -1,0 +1,34 @@
+.Card {
+  background-color: #3d87c2;
+  color: white;
+  border: 1px solid inherit;
+  height: 200px;
+  width: 80%;
+  margin: 30px;
+  border-radius:10px;
+    box-shadow: 1px 2px 5px gray;
+  /* transition: height 2s, width 2s 0s; */
+  
+}
+
+/* .Card:hover {
+  background-color: #698398;
+ 
+} */
+
+.Card button{
+    padding:5px;
+    border-radius:5px;
+    box-shadow: 1px 2px 5px gray;
+    font-size: 12px;
+    margin:20px;
+    color:#3d87c2;
+    font-weight: bold;
+    outline:none;
+}
+
+.Card button:hover{
+    background-color:#2f6896;
+    color:white;
+    cursor:pointer;
+}
