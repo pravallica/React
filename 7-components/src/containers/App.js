@@ -16,7 +16,8 @@ class App extends Component {
       { id: 3, items: "Bread", price: 1 },
       { id: 4, items: "Chicken", price: 10 }
     ],
-    showItem: false
+    showItem: false,
+    showCockpit: true
   };
 
   
@@ -57,13 +58,16 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit
+        <button onClick = {() => {
+          this.setState({showCockpit: false});
+        }}>Remove Cockpit</button>
+        {this.state.showCockpit ? (<Cockpit
           showItem={this.state.showItem}
           Grocery={this.state.Grocery}
           change={this.itemChangeHandler.bind(this, 4)}
           toggle={this.toggleContentHandler}
           title = {this.props.appTitle}
-        />
+        />) :null}
         {NewGroceries}
       </div>
     );
