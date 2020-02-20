@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import classes from "./Cockpit.module.css";
-
+import ContextAuth from '../context/auth-context';
 const Cockpit = (props) => {
+
+  const toggleBtnRef = useRef(null);
+  const anyName = useContext(ContextAuth);
   useEffect(() => {
    console.log('Cockpit.js... useEffect()');
-   setTimeout(()=>{
-     alert('Time out');
-   },1000);
+  //  setTimeout(()=>{
+  //    alert('Time out');
+  //  },1000);
+    toggleBtnRef.current.click();
    return() =>{
      console.log('Cockpit.js... Cleaning up')
    };
@@ -34,9 +38,13 @@ const Cockpit = (props) => {
     <div className={classes.Cockpit}> {props.title}
       <p className={classesList.join(" ")}> I am the Groceries Css Component</p>
       <button onClick={props.change}> Change</button>
-      <button className={btnClasses} onClick={props.toggle}>
+      <button  ref= {toggleBtnRef} className={btnClasses} onClick={props.toggle}>
         Toggle
       </button>
+      
+        <button onClick = {anyName.login}>Log in</button>
+        
+      
     </div>
   );
 };
