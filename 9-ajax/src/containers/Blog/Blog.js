@@ -1,72 +1,32 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Post from '../../components/Post/Post';
-import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
+import Posts from '../Posts/Posts';
+import NewPost from '../NewPost/NewPost';
+import { Route, Link } from 'react-router-dom';
 import './Blog.css';
 
 class Blog extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-             Posts: [],
-             selectedPostId : null,
-             error: false
-        }
-    }
-    
-    componentDidMount(){
-        axios.get('https://jsonplaceholdler.typicode.com/posts')
-            .then(response => {
-                const posts = response.data.slice(0,4);
-                const updatedPosts = posts.map(post=>{
-                    return {
-                        ...post,
-                        author: 'Pravu'
-                    }
-                })
-                this.setState({
-                    Posts: updatedPosts
-                });
-                // console.log(this.state.Posts)
-            })
-            .catch(error => {
-                this.setState({
-                    error: true
-                })
-                
-            })
-    }
-
-    selectedPostHandler = (id) => {
-        this.setState({
-            selectedPostId: id 
-        })
-    }
     render () {
-        let posts = this.state.Posts.map(post =>{
-                return <Post 
-                title={post.title} 
-                key = {post.id} 
-                author = {post.author}
-                clicked = {this.selectedPostHandler.bind(this,post.id)}/>
-        });
-
-        if(this.state.error){
-            posts = <p style={{fontSize: '20px', color: 'red'}}> Something went wrong!!</p>
-        }
         return (
             <div>
-                <section className="Posts">
-                    {posts}
-                </section>
-                <section>
-                    <FullPost id={this.state.selectedPostId}/>
-                </section>
-                <section>
-                    <NewPost />
-                </section>
+                <div className= "Menu">
+                    <ul>
+                        {/* <li> <a href="/">Home</a></li> */}
+                        <li> <Link to = "/">Home</Link></li>
+                        <li> <Link to = {{ 
+                                pathname: "/newPost",
+                                hash:'#submit',
+                                search: '?quick-submit=true'
+                        }}>New Post</Link></li>
+                    </ul>
+                    {/* <Route path="/" exact render={ () => <h3>Showing the Posts Here</h3>} />
+                    <Route path="/" exact render={ () => <Posts/>} /> */}
+                    <Route path="/" exact component={Posts} />
+                    <Route path="/newPost" exact component={NewPost} />
+                    {/* <Route path="/" exact component={Posts} /> */}
+
+                </div>
+                
+                
             </div>
         );
     }
