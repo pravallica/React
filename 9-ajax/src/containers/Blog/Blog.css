@@ -18,7 +18,9 @@
     color:black;
 }
 
-.Menu li a:hover,
-.Menu li a:active{
+.Menu a:hover,
+.Menu a:active,
+.Menu a.active
+{
     color: coral;
 }
