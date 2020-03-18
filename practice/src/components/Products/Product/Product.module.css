@@ -1,0 +1,44 @@
+.Container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.Card{
+  
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 600px) {
+    .Card {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+  
+  @media screen and (min-width: 900px) {
+    .Card {
+      flex: 1 1 calc(33% - 2rem);
+    }
+  }
+
+.Add {
+    background-color: rgb(199, 2, 2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border:none;
+  }
+  
+  .Add:hover {
+    background: rgb(146, 0, 0);
+    
+  }
+
+  .Add:active{
+    
+  }
+  

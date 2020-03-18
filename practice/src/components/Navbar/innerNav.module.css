@@ -1,0 +1,15 @@
+.List {
+    list-style: none;
+    line-height: 0px;
+    text-align: center;
+    
+  }
+  
+  .List > li {
+    display: inline;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+
+  
+    

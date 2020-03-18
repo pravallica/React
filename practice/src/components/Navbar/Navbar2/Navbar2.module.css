@@ -1,0 +1,18 @@
+.RightNav{
+margin: 0 50px;
+
+}
+.List{
+list-style: none;
+margin-left:1000px;
+}
+
+.List > li{
+    display:inline;
+    margin-left:15px;
+   
+}
+
+.List, .RightNav{
+    display:inline-flex;
+}
